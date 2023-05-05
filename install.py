@@ -34,3 +34,22 @@ def createExportFolder():
         os.mkdir(fullPath)
         logging.info("Kein Export-Verzeichnis erkannt, wird neu erstellt")
         print("Kein Export-Verzeichnis erkannt, wird neu erstellt")
+
+
+def checkMode1Files():
+
+    while True:
+
+        input(
+            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+
+        classlist_check = os.path.exists('./import_dateien/sibank_classes.csv')
+
+        if classlist_check == True:
+            logging.info("Sibank Klassenliste wurde erfolgreich gefunden!")
+            print("Klassenliste aus Sibank erfolgreich gefunden!")
+            break
+
+        else:
+            logging.warning("Konnte die Sibank Klassenliste nicht finden!")
+            print("Klassenliste konnte nicht gefunden werden! Bitte erneut versuchen.")

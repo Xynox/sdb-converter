@@ -2,6 +2,8 @@
 
 from install import *
 from logger import *
+from sibank_classlist_converter import *
+import sys
 
 
 def askCurrentMode():
@@ -51,8 +53,10 @@ def main():
     # check the mode the user has selected, the else function shouldnt be triggered, if, then critical error
 
     if mode == 1:
-        # use here sibank_classlist_converter.py functions, remove the return statement!
-        return
+
+        checkMode1Files()
+        classlistConverter()
+
     elif mode == 2:
         # use here webuntis_student_converter.py functions, remove the return statement!
         return
@@ -63,7 +67,8 @@ def main():
         print("Kein korrekter Modus erkannt. Kritischer Fehler")
         logging.critical(
             "Konnte den Modus nicht erkennen; Verlasse das Programm!")
-        return
+        input("Programm wird beendet, bitte eine Taste drücken. ")
+        sys.exit("Kritischer Fehler, Modus konnte nicht erkannt werden")
 
 
 main()
