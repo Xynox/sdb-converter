@@ -3,12 +3,13 @@
 from install import *
 from logger import *
 from sibank_classlist_converter import *
+from webuntis_parent_converter import *
 import sys
 
 
 def askCurrentMode():
     print("Aufgrund der verschiedenen Anwendungsarten muss ein Modus spezifiziert werden. Weitere Informationen befinden sich, wie die Anforderungen der jeweiligen Operationen, in der README.md-Datei.")
-    print("Schreiben Sie: \n 1, wenn die Klassenliste aus Sibank in das Iserv-Format konvertiert werden soll, \n 2, wenn eine WebUntis-Schülerliste erstellt werden soll oder \n 3, wenn die Elternlisten für WebUntis erstellt werden sollen.")
+    print("Schreiben Sie: \n 1, wenn die Klassenliste aus Sibank in das Iserv-Format konvertiert werden soll, \n 2, wenn die Elternlisten + Mailinglisten für WebUntis erstellt werden sollen oder \n 3, wenn eine WebUntis-Schülerliste erstellt werden soll.")
     ready = False
     global mode
 
@@ -58,8 +59,11 @@ def main():
         classlistConverter()
 
     elif mode == 2:
-        # use here webuntis_student_converter.py functions, remove the return statement!
-        return
+
+        checkMode2Files()
+        webUntisParentConverter()
+        createMailingList()
+
     elif mode == 3:
         # use here webuntis_parent_converter.py functions, remove the return statement!
         return

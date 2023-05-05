@@ -53,3 +53,27 @@ def checkMode1Files():
         else:
             logging.warning("Konnte die Sibank Klassenliste nicht finden!")
             print("Klassenliste konnte nicht gefunden werden! Bitte erneut versuchen.")
+
+
+def checkMode2Files():
+
+    while True:
+
+        input(
+            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+
+        classlist_check = os.path.exists(
+            './import_dateien/sibank_ez1.csv') & os.path.exists('./import_dateien/sibank_ez2.csv') & os.path.exists("./import_dateien/iserv_account_data.csv")
+
+        if classlist_check == True:
+            logging.info(
+                "Sibank Erziehungsberechtigtenlisten und Iserv Nutzerdatenbank wurden erfolgreich gefunden!")
+            print(
+                "Erziehungsberechtigtenlisten aus Sibank und Nutzerdatenbank aus Iserv erfolgreich gefunden!")
+            break
+
+        else:
+            logging.warning(
+                "Konnte die Sibank Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) nicht finden!")
+            print(
+                "Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) konnten nicht gefunden werden! Bitte erneut versuchen.")

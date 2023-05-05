@@ -21,7 +21,7 @@ def classlistConverter():
 
     logging.info("DataFrame wurde editiert, Q1 und Q2 wurden ersetzt!")
 
-    dataFrame.to_csv("./export_dateien/export_iserv_users_1.csv",
+    dataFrame.to_csv("./export_dateien/iserv_nutzer_converted.csv",
                      index=False, header=True, index_label=False, quotechar='"', quoting=csv.QUOTE_ALL)
     logging.info("Erfolgreich DataFrame in CSV-Datei exportiert!")
 
