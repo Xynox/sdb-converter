@@ -4,6 +4,7 @@ from install import *
 from logger import *
 from sibank_classlist_converter import *
 from webuntis_parent_converter import *
+from webuntis_student_converter import *
 import sys
 
 
@@ -65,14 +66,17 @@ def main():
         createMailingList()
 
     elif mode == 3:
-        # use here webuntis_parent_converter.py functions, remove the return statement!
-        return
+
+        webUntisStudentConverter()
+
     else:
         print("Kein korrekter Modus erkannt. Kritischer Fehler")
         logging.critical(
             "Konnte den Modus nicht erkennen; Verlasse das Programm!")
         input("Programm wird beendet, bitte eine Taste drücken. ")
         sys.exit("Kritischer Fehler, Modus konnte nicht erkannt werden")
+
+    input("Programm hat Modus ausgeführt und wird beendet, bitte beliebige Taste drücken: ")
 
 
 main()

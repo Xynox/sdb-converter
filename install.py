@@ -77,3 +77,27 @@ def checkMode2Files():
                 "Konnte die Sibank Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) nicht finden!")
             print(
                 "Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) konnten nicht gefunden werden! Bitte erneut versuchen.")
+
+
+def checkMode3Files():
+
+    while True:
+
+        input(
+            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+
+        classlist_check = os.path.exists(
+            './export_dateien/iserv_nutzer_converted.csv') & os.path.exists('./import_dateien/iserv_account_data.csv')
+
+        if classlist_check == True:
+            logging.info(
+                "Konvertierte Klassenliste und Iserv Nutzerdatenbank wurden erfolgreich gefunden!")
+            print(
+                "Konvertierte Klassenliste und Nutzerdatenbank aus Iserv erfolgreich gefunden!")
+            break
+
+        else:
+            logging.warning(
+                "Konnte die Sibank Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) nicht finden!")
+            print(
+                "Erziehungsberechtigtenlisten und Nutzerdatenbank (Iserv) konnten nicht gefunden werden! Bitte erneut versuchen.")
