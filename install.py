@@ -1,13 +1,17 @@
-# todo: this will be a script creating a folder for input/output
-# it could also be used as a way to give the user feedback on what files are missing etc.
 import os
 import logging
 
 
+""" Beide folgenden Funktionen checken zunächst durch Konstanten, die verbunden werden, ob das jeweilige Verzeichnis existiert.
+
+Wenn ja: Überspringen der Erstellung der Ordner
+Wenn nein: Mithilfe der os-Funktion wird ein Verzeichnis erstellt, das je nach Funktion "export_dateien" oder "input_dateien" heißt. """
+
+
 def createImportFolder():
-    parentDir = './'
-    dirName = "import_dateien"
-    fullPath = os.path.join(parentDir, dirName)
+    PARENT_DIR = './'
+    DIR_NAME = "import_dateien"
+    fullPath = os.path.join(PARENT_DIR, DIR_NAME)
 
     if os.path.exists(fullPath):
         logging.info(
@@ -21,9 +25,9 @@ def createImportFolder():
 
 
 def createExportFolder():
-    parentDir = './'
-    dirName = "export_dateien"
-    fullPath = os.path.join(parentDir, dirName)
+    PARENT_DIR = './'
+    DIR_NAME = "export_dateien"
+    fullPath = os.path.join(PARENT_DIR, DIR_NAME)
 
     if os.path.exists(fullPath):
         logging.info(
@@ -34,6 +38,14 @@ def createExportFolder():
         os.mkdir(fullPath)
         logging.info("Kein Export-Verzeichnis erkannt, wird neu erstellt")
         print("Kein Export-Verzeichnis erkannt, wird neu erstellt")
+
+
+""" Alle folgenden Funktionen sind gleich aufgebaut und funktionieren praktisch gleich:
+Zunächst wird dem Nutzer Zeit eingeräumt, die erforderlichen Dateien in dem Import-Ordner abzulegen und wartet auf seinen Input
+Danach wird überprüft, ob die Datei gefunden wurde
+
+Wenn ja, dann wird der while-Loop unterbrochen
+Wenn nein, dann wird der while-Loop wiederholt und der Nutzer wiederum um Input gefragt (siehe oben) """
 
 
 def checkMode1Files():
