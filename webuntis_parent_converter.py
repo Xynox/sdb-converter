@@ -116,7 +116,24 @@ def createMailingList():
     logging.info(
         "Leere Identnummern und falsche Identnummern wurden gefiltert!")
 
-    # TODO implement mail check logic
+    def mailCheck(row):
+        ez1_mail = row["EZ1_Mail"]
+        ez2_mail = row["EZ2_Mail"]
+
+        if not ez1_mail and not ez2_mail:
+            return 0
+        elif ez1_mail and not ez2_mail:
+            return 1
+        elif not ez1_mail and ez2_mail:
+            return 2
+        elif ez1_mail != ez2_mail:
+            return 3
+        else:
+            return 4
+
+    dataFrame_mail["MailPrüfung"] = dataFrame_mail.apply(mailCheck, axis=1)
+
+    logging.info("Mailprüfung wurde hinzugefügt!")
 
     dataFrame_mail.to_csv("./export_dateien/mailingliste_converted.csv",
                           index=False, header=True, index_label=False, quoting=csv.QUOTE_NONE, float_format='%.0f')
@@ -124,6 +141,3 @@ def createMailingList():
     logging.info("Export der Mailinglisten erfolgreich abgeschlossen!")
 
     print("Mailinglisten erfolgreich erstellt!")
-
-
-createMailingList()
