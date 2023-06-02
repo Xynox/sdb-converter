@@ -62,7 +62,18 @@ def main():
     createImportFolder()
     createExportFolder()
 
-    askCurrentMode()  # using the function to determine the mode that will be executed
+    checkMode1Files()
+    classlistConverter()
+
+    checkMode2Files()
+    webUntisParentConverter()
+    createMailingList()
+    iservParentAccountConverter()
+
+    checkMode3Files()
+    webUntisStudentConverter()
+
+    """ askCurrentMode()  # using the function to determine the mode that will be executed
 
     # check the mode the user has selected, the else function shouldnt be triggered, if, then critical error
 
@@ -90,7 +101,7 @@ def main():
         input("Programm wird beendet, bitte eine Taste drücken. ")
         sys.exit("Kritischer Fehler, Modus konnte nicht erkannt werden")
 
-    input("Programm hat Modus ausgeführt und wird beendet, bitte beliebige Taste drücken: ")
+    input("Programm hat Modus ausgeführt und wird beendet, bitte beliebige Taste drücken: ") """
 
 
 # Ausführung der main()-Funktion

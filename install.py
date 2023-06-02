@@ -52,8 +52,9 @@ def checkMode1Files():
 
     while True:
 
+        print(" ")
         input(
-            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+            "Bitte 'sibank_classes.csv'-Datei in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
 
         classlist_check = os.path.exists('./import_dateien/sibank_classes.csv')
 
@@ -71,8 +72,9 @@ def checkMode2Files():
 
     while True:
 
+        print(" ")
         input(
-            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+            "Bitte die Dateien 'sibank_ez1.csv', 'sibank_ez2.csv' und 'iserv_account_data.csv' in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
 
         classlist_check = os.path.exists(
             './import_dateien/sibank_ez1.csv') & os.path.exists('./import_dateien/sibank_ez2.csv') & os.path.exists("./import_dateien/iserv_account_data.csv")
@@ -95,8 +97,9 @@ def checkMode3Files():
 
     while True:
 
+        print(" ")
         input(
-            "Bitte die Dateien in den 'import_dateien'-Ordner platzieren! Danach Taste drücken, um fortzufahren... ")
+            "Bitte vergewissern, dass die Datei 'iserv_account_data.csv' in dem 'import_dateien'-Ordner ist und 'iserv_nutzer_converted.csv' im 'export_dateien'-Ordner sich befindet! Danach Taste drücken, um fortzufahren... ")
 
         classlist_check = os.path.exists(
             './export_dateien/iserv_nutzer_converted.csv') & os.path.exists('./import_dateien/iserv_account_data.csv')
