@@ -31,4 +31,4 @@
 ## Fehler
 Bei Fehlern bitte einen Screenshot von dem Fehler machen und ein Issue auf GitHub eröffnen. So kann ich Fehler am besten ausmerzen.
 
-##### Made with ❤️ by Xynox (Joel W.) ©️ 2023
+##### Made with ❤️ by Xynox (Joel W.) © 2023
