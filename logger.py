@@ -1,7 +1,8 @@
-# todo this will be a logger of all steps (mainly for debugging, can be kept as verification for the program working)
-# may get deprecated
-
 import logging
+
+""" Folgende Funktion initialisiert den Logger.
+Der Logger beginnt ab dem Level "DEBUG" und speichert den Log als "sdb-log.txt" im Directory der main-Datei.
+Format ist folgendes: "STUNDE:MINUTE:SEKUNDE LEVEL NACHRICHT" """
 
 
 def startLogger():

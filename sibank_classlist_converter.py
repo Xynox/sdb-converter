@@ -1,10 +1,17 @@
-# todo: this program will go through the provided Sibank classlist and change all Oberstufe classes into their respective Stufe (Q1xxx; Q2xxx --> Q1; Q2)
-# this will export the updated list into Iserv .csv sheets, for the Iserv users and the SBA
-# WILL BE FUNCTION NO 1
-
 import pandas as pd
 import csv
 import logging
+
+""" Folgende Funktion ist der Klassenlistenkonvertierer
+Zunächst werden die Dateien über die Pandas-Library eingelesen und in ein Dataframe (interne Tabelle der Pandas Library) konvertiert
+Danach wird unter jedem Header "KLASSE" die Werte "Q1" & "Q2" gesucht und per Regex alle folgenden Zeichen gelöscht.
+Folgend wird der Dataframe exportiert. Die Parameter bedeuten folgendes:
+
+index=False: Es werden die Nummern für die Zeilen des Dataframes nicht in der CSV-Datei ausgegeben
+header=True: Der ursprüngliche Header wird beibehalten
+index_label=False: Genauso wie index=False
+quotechar='"': Zeigt an, dass alle Einträge mit Anführungszeichen gewrapped werden sollen
+quoting=csv.QUOTE_ALL: Alle Werte werden in Anführungszeichen gewrapped """
 
 
 def classlistConverter():
