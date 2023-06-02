@@ -31,7 +31,7 @@ def webUntisStudentConverter():
         columns={"E-Mail-Adresse": "EMAIL-ADRESSE"}, inplace=True)
 
     dataFrame_student.to_csv("./export_dateien/webuntis_schülerzugang_converted.csv",
-                             sep=',', quotechar='"', quoting=csv.QUOTE_ALL, index=False, header=True, index_label=False)
+                             sep=',', quotechar='"', quoting=csv.QUOTE_ALL, index=False, header=True, index_label=False, float_format='%.0f')
 
     logging.info("Erfolgreich CSV-Datei für Schülerzugang erstellt!")
 
