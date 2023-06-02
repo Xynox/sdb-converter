@@ -76,6 +76,7 @@ def main():
         checkMode2Files()
         webUntisParentConverter()
         createMailingList()
+        iservParentAccountConverter()
 
     elif mode == 3:
 

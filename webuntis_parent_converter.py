@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
 import csv
-import re
 import logging
 
 
@@ -141,3 +139,28 @@ def createMailingList():
     logging.info("Export der Mailinglisten erfolgreich abgeschlossen!")
 
     print("Mailinglisten erfolgreich erstellt!")
+
+
+def iservParentAccountConverter():
+
+    csv_ez1 = pd.read_csv(
+        "./export_dateien/webuntis_elternzugang1_converted.csv", sep=",", quotechar='"')
+    dataFrame_ez1 = pd.DataFrame(csv_ez1)
+
+    csv_ez2 = pd.read_csv(
+        "./export_dateien/webuntis_elternzugang2_converted.csv", sep=",", quotechar='"')
+    dataFrame_ez2 = pd.DataFrame(csv_ez2)
+
+    dataFrame_ez1.drop(columns=[
+                       "FAMILIENNAME", "RUFNAME", "KLASSE", "EZ1_Fullname", "EZ E-MAIL"], inplace=True)
+    dataFrame_ez2.drop(columns=[
+                       "FAMILIENNAME", "RUFNAME", "KLASSE", "EZ2_Fullname", "EZ2 E-MAIL", "IDENTNUMMER"], inplace=True)
+
+    concatFrames = [dataFrame_ez1, dataFrame_ez2]
+    dataFrame_full = pd.concat(concatFrames, axis=1)
+
+    dataFrame_full.to_csv("./export_dateien/iserv_elternzugänge_converted.csv", index=False,
+                          header=True, index_label=False, quoting=csv.QUOTE_ALL, quotechar='"', float_format="%.0f")
+
+    print("Elternzugänge für Iserv wurden erfolgreich erstellt!")
+    logging.info("Elternzugänge für Iserv wurden erfolgreich erstellt!")
