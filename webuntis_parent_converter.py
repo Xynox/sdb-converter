@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import csv
+import re
 import logging
 
 
@@ -107,9 +109,21 @@ def createMailingList():
                           "Nachname": "UserLastName", "Account": "Username", "E-Mail-Adresse": "Email", "EZ1_Fullname": "EZ1_FullName", "EZ E-MAIL": "EZ1_Mail", "EZ2_Fullname": "EZ2_FullName", "EZ2 E-MAIL": "EZ2_Mail"}, inplace=True)
     logging.info("Erfolgreich alle Header richtig benannt!")
 
+    dataFrame_mail = dataFrame_mail[dataFrame_mail['IDENTNUMMER'].str.isnumeric(
+    )]
+    dataFrame_mail = dataFrame_mail[dataFrame_mail['IDENTNUMMER'].notnull()]
+
+    logging.info(
+        "Leere Identnummern und falsche Identnummern wurden gefiltert!")
+
+    # TODO implement mail check logic
+
     dataFrame_mail.to_csv("./export_dateien/mailingliste_converted.csv",
                           index=False, header=True, index_label=False, quoting=csv.QUOTE_NONE, float_format='%.0f')
 
     logging.info("Export der Mailinglisten erfolgreich abgeschlossen!")
 
     print("Mailinglisten erfolgreich erstellt!")
+
+
+createMailingList()
