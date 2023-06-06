@@ -16,7 +16,7 @@
 
 ## Funktionsweise
 ### **ACHTUNG: DIE REIHENFOLGE DER SCHRITTE IST WICHTIG!**
-### **DIE EXPORT-DATEIEN BIS ZUM BEENDEN DES PROGRAMMS NICHT ENTFERNEN ODER UMBENENNEN!
+### **DIE EXPORT-DATEIEN BIS ZUM BEENDEN DES PROGRAMMS NICHT ENTFERNEN ODER UMBENENNEN!**
 1. Falls die Ordner nicht vorhanden waren, werden nun 2 Ordner namens "import_dateien" und "export_dateien" erstellt.
 2. In den Import-Ordner muss nun "sibank_classes.csv" abgelegt werden. Falls die Dateien nicht vorhanden sind oder falsch benannt sind, wird das Programm die Abfrage immer wieder wiederholen, bis der exakte Name vorhanden ist.
 3. Das Programm wandelt die Klassenliste in das Iserv-CSV-Format *(in export_dateien ---> "iserv_nutzer_converted.csv")* um. Diese CSV-Datei muss nun bei Iserv importiert werden. **Die daraus entstehende Accountdatenbank muss nun exportiert werden.**
